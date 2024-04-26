@@ -58,29 +58,25 @@
 //         });
 // }
 
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems, {});
-    
-    // Get references to the content title and the banner element
-    const contentTitle = document.querySelector('.content h4');
-    const banner = document.querySelector('.banner');
-  });
-  
-  function changbg(imagePath) {
-    // Update background image
-    banner.style.backgroundImage = `url(${imagePath})`;
-    
-    // Extract title from image path (assuming title is part of the filename)
-    const title = imagePath.split('.')[0].split('-').slice(-1)[0];
-    contentTitle.textContent = title; // Update content title
-  }
-  
+function changBg(bg, title) {
+  const banner = document.querySelector('.banner');
+  const contents = document.querySelectorAll('.content');
+  banner.style.backgroundImage = `url("../images/movies/${bg}")`;
+  banner.style.backgroundSize = 'cover';
+  banner.style.backgroundPosition = 'center';
 
-  const carouselItems = document.querySelectorAll('.carousel-item');
 
-carouselItems.forEach(item => {
-  item.addEventListener('click', () => {
-    changbg(item);
+  contents.forEach(content => { 
+      content.classList.remove('active');
+      if (content.classList.contains(title)) {
+          content.classList.add('active');
+      }
   });
+}
+
+const concealedBox = document.querySelector('.concealed-box');
+const backgroundImage = document.querySelector('.background-image');
+
+concealedBox.addEventListener('click', () => {
+  backgroundImage.style.backgroundImage = 'url("MOVIE WEBSITE/bg-little-mermaid.jpg")';  /* Replace with your new image URL */
 });

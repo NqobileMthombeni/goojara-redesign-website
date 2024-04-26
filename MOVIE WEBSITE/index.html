@@ -53,12 +53,11 @@
     </div>
     <div class="carousel-box">
         <div class="carousel">
-            <img id="movieTitle" class="movie-title" src="" alt="">
-            <a class="carousel-item" data-bg="bg-the-little-mermaid.jpg" data-title="The Little Mermaid" href="#one!"><img src="the-little-mermaid.jpeg"></a>
-            <a class="carousel-item" onclick="changBg('65.jpg', '65', 'movies/bg-65.jpeg')" href="#two!"><img src="movies/65.jpg"></a>
-            <a class="carousel-item" onclick="changBg('the-covenant.jpg', 'The Covenant', 'the-covenant.jpeg')" href="#three!"><img src="the-covenant.jpg"></a>
-            <a class="carousel-item" onclick="changBg('the-black-demon.jpg', 'The Black Demon', 'the-black-demon.jpeg')" href="#four!"><img src="the-black-demon.jpg"></a>
-            <a class="carousel-item" onclick="changBg('the-tank.jpeg', 'The Tank', '/home/wtc/MOVIE WEBSITE/the-tank-title.png')" href="#five!"><img src="the-tank.jpeg"></a>
+            <a class="carousel-item" data-bg="MOVIE WEBSITE/bg-little-mermaid.jpg" data-title="MOVIE WEBSITE/the-little-mermaid-title.png" href="#one!"><img src="the-little-mermaid.jpeg"></a>
+            <a class="carousel-item" data-bg="MOVIE WEBSITE/movies/bg-65.jpeg" data-title="MOVIE WEBSITE/the-65-title.png" onclick="changBg('65.jpg', '65', 'MOVIE WEBSITE/the-65-title.png')" href="#two!"><img src="movies/65.jpg"></a>
+            <a class="carousel-item" data-bg="MOVIE WEBSITE/movies/bg-the-covenant.jpeg" data-title="MOVIE WEBSITE/the-covenant-title.png" onclick="changBg('the-covenant.jpg', 'The Covenant', 'MOVIE WEBSITE/the-covenant-title.png')" href="#three!"><img src="the-covenant.jpg"></a>
+            <a class="carousel-item" data-bg="MOVIE WEBSITE/movies/bg-the-black-demon.jpeg" data-title="MOVIE WEBSITE/the-black-demon-title.png" onclick="changBg('the-black-demon.jpg', 'The Black Demon', 'MOVIE WEBSITE/the-black-demon-title.png')" href="#four!"><img src="the-black-demon.jpg"></a>
+            <a class="carousel-item" data-bg="MOVIE WEBSITE/movies/bg-the-tank.jpeg" data-title="MOVIE WEBSITE/the-tank-title.png" onclick="changBg('the-tank.jpeg', 'The Tank', 'MOVIE WEBSITE/the-tank-title.png')" href="#five!"><img src="the-tank.jpeg"></a>
 
         </div>
     </div>
@@ -72,9 +71,14 @@
     </ul>
 </div>
 
+<div class="concealed-box">
+    <div class="background-image"></div>
+  </div>
+  
+
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="./js/ind.js"></script>
+<script src="./js/index.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.carousel');
@@ -87,12 +91,12 @@
         const movieTitle = document.getElementById('movieTitle'); // Get the movie title element
 
         // Setting background image
-        banner.style.backgroundImage = `url("images/movies/${bg}")`;
+        banner.style.backgroundImage = `url("${bg}")`;
         banner.style.backgroundSize = 'cover';
         banner.style.backgroundPosition = 'center';
 
         // Set the movie title
-        movieTitle.src = `./${titleImage}`;
+        movieTitle.src = `${titleImage}`;
 
         // Loop through contents
         contents.forEach(content => { 
