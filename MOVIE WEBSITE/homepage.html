@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goojara</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">
+        <img src="New_Project__3_-removebg-preview.png" alt="Goojara Logo">
+    </a>
+    <ul class="nav">
+        <li>
+            <a href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+        </li>
+        <li><a href="#">Adults</a></li>
+        <li><a href="#">Kids</a></li>
+        <li><a href="#">Trend</a></li>
+        <li><a href="#">My List</a></li>
+    </ul> 
+    <div class="search">
+        <input id="searchInput" type="text" placeholder="Search" />
+        <i id="searchIcon" class="fa fa-search" aria-hidden="true"></i>
+        <button onclick="searchMovies()">Search</button>
+        <div id="movieResults"></div>
+      </div>  
+      <script src="function.js"></script>
+
+</header>
+
+
+<div class="banner">
+    <div class="content active">
+        <img src="./the-little-mermaid-title.png" alt="" class="movie-title" id="movieTitle"> <!-- Added id -->
+        <h4>
+            <span>2023</span><span><i>12+</i></span><span>2h 14min</span><span>Romance</span>
+        </h4>
+        <p>
+            The recent adaptation of "The Little Mermaid" offers a fresh take on the classic tale.
+            This enchanting film follows Ariel, a young mermaid who dreams of exploring the human world.
+            As she ventures onto land, she discovers love, friendship, and the complexities of human life.
+            With its captivating visuals and heartfelt storytelling, "The Little Mermaid" is a charming and magical adventure for audiences of all ages.
+        </p>
+        <div class="button">
+            <a href="#"><i class="fa fa-play" aria-hidden="true"></i> Watch</a>
+            <a href="#"><i class="fa fa-plus" aria-hidden="true"></i> My list</a>
+        </div>
+    </div>
+    <div class="carousel-box">
+        <div class="carousel">
+            <img id="movieTitle" class="movie-title" src="" alt="">
+            <a class="carousel-item" data-bg="bg-the-little-mermaid.jpg" data-title="The Little Mermaid" href="#one!"><img src="the-little-mermaid.jpeg"></a>
+            <a class="carousel-item" onclick="changBg('65.jpg', '65', 'movies/bg-65.jpeg')" href="#two!"><img src="movies/65.jpg"></a>
+            <a class="carousel-item" onclick="changBg('the-covenant.jpg', 'The Covenant', 'the-covenant.jpeg')" href="#three!"><img src="the-covenant.jpg"></a>
+            <a class="carousel-item" onclick="changBg('the-black-demon.jpg', 'The Black Demon', 'the-black-demon.jpeg')" href="#four!"><img src="the-black-demon.jpg"></a>
+            <a class="carousel-item" onclick="changBg('the-tank.jpeg', 'The Tank', '/home/wtc/MOVIE WEBSITE/the-tank-title.png')" href="#five!"><img src="the-tank.jpeg"></a>
+
+        </div>
+    </div>
+    <a href="#" class="play"><i class="fa fa-play" aria-hidden="true"></i>
+        Watch Trailer</a>
+
+    <ul class="sci">
+        <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+        <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i> YouTube</a></li>
+        <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+    </ul>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./js/function.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.carousel');
+        var instances = M.Carousel.init(elems, {});
+    });
+
+    function changBg(bg, title, titleImage) {
+        const banner = document.querySelector('.banner');
+        const contents = document.querySelectorAll('.content');
+        const movieTitle = document.getElementById('movieTitle'); // Get the movie title element
+
+        // Setting background image
+        banner.style.backgroundImage = `url("images/movies/${bg}")`;
+        banner.style.backgroundSize = 'cover';
+        banner.style.backgroundPosition = 'center';
+
+        // Set the movie title
+        movieTitle.src = `./${titleImage}`;
+
+        // Loop through contents
+        contents.forEach(content => { 
+            // Remove active class from all contents
+            content.classList.remove('active');
+            
+            // Add active class to content with matching title
+            if (content.classList.contains(title)) {
+                content.classList.add('active');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
